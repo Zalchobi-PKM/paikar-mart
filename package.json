@@ -1,0 +1,11 @@
+{
+  "name": "paikarmart",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter frontend dev\" \"pnpm --filter backend dev\"",
+    "build": "pnpm --filter frontend build && pnpm --filter backend build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
