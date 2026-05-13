@@ -1,0 +1,98 @@
+Folder PATH listing
+Volume serial number is 849F-B1EC
+C:\USERS\MD MUNNA\PKM-APP\PAIKARMART\FRONTEND\SRC
+¦   App.tsx
+¦   index.css
+¦   main.tsx
+¦   vite-env.d.ts
+¦   
++---app
+¦       providers.tsx
+¦       query-client.ts
+¦       router.tsx
+¦       store.ts
+¦       
++---components
+¦   +---common
+¦   ¦       .gitkeep
+¦   ¦       
+¦   +---layout
+¦   ¦       .gitkeep
+¦   ¦       
+¦   +---modals
+¦   ¦       .gitkeep
+¦   ¦       
+¦   +---responsive
+¦   ¦       .gitkeep
+¦   ¦       
+¦   +---ui
+¦           .gitkeep
+¦           
++---constants
++---features
+¦   +---admin
+¦   ¦   +---api
+¦   ¦   +---dashboard
+¦   ¦   +---hooks
+¦   ¦   +---reports
+¦   ¦   +---sellers
+¦   ¦   +---users
+¦   +---auth
+¦   ¦   ¦   types.ts
+¦   ¦   ¦   
+¦   ¦   +---api
+¦   ¦   +---components
+¦   ¦   +---hooks
+¦   ¦   +---pages
+¦   +---cart
+¦   +---homepage
+¦   ¦   +---components
+¦   ¦   ¦       .gitkeep
+¦   ¦   ¦       
+¦   ¦   +---ecommerce
+¦   ¦   +---feed
+¦   ¦   +---hooks
+¦   +---moderator
+¦   ¦   +---api
+¦   ¦   +---dashboard
+¦   ¦   +---reports
+¦   ¦   +---reviews
+¦   +---order
+¦   +---product
+¦   ¦   ¦   types.ts
+¦   ¦   ¦   
+¦   ¦   +---api
+¦   ¦   +---components
+¦   ¦   +---hooks
+¦   +---seller
+¦   ¦   +---analytics
+¦   ¦   +---api
+¦   ¦   +---components
+¦   ¦   +---dashboard
+¦   ¦   +---hooks
+¦   ¦   +---orders
+¦   ¦   +---payouts
+¦   ¦   +---products
+¦   ¦   +---types
+¦   ¦       +---digital
+¦   ¦       +---physical
+¦   ¦       +---service
+¦   +---user
+¦   ¦   +---addresses
+¦   ¦   +---orders
+¦   ¦   +---profile
+¦   +---wishlist
++---hooks
++---lib
+¦       api.ts
+¦       utils.ts
+¦       validators.ts
+¦       
++---pages
+¦       Cart.tsx
+¦       HomeEcommerce.tsx
+¦       HomeFeed.tsx
+¦       ProductDetail.tsx
+¦       
++---types
++---utils
