@@ -24,33 +24,36 @@ export default function QuickAccessGrid() {
   const navigate = useNavigate();
 
   return (
-    <div className="px-3 py-4 pb-6">
-      {/* Grid: 5 columns for mobile, responsive */}
-      <div className="grid grid-cols-5 gap-2.5 sm:gap-3">
+    <div className="px-2 sm:px-3 md:px-4 py-3 md:py-4 pb-6 md:pb-8">
+      {/* Grid: responsive columns */}
+      <div className="grid grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2 sm:gap-2.5 md:gap-3">
         {items.map((item) => (
           <button
             key={item.id}
             onClick={() => navigate(item.route)}
-            className="flex flex-col items-center gap-1 group active:opacity-70 transition-opacity"
+            className="flex flex-col items-center gap-1 sm:gap-1.5 group active:opacity-70 hover:opacity-80 transition-opacity"
             type="button"
+            title={item.label}
           >
-            {/* Icon Container */}
+            {/* Icon Container - Responsive */}
             <div
-              className={`relative w-full aspect-square rounded-xl sm:rounded-2xl bg-gradient-to-br ${item.bg} flex items-center justify-center shadow-md group-active:scale-95 transition-transform duration-150`}
+              className={`relative w-full aspect-square rounded-lg sm:rounded-xl md:rounded-2xl bg-gradient-to-br ${item.bg} flex items-center justify-center shadow-md group-active:scale-95 hover:scale-105 transition-transform duration-150`}
             >
-              <span className="text-2xl sm:text-3xl drop-shadow">{item.emoji}</span>
+              <span className="text-xl sm:text-2xl md:text-3xl drop-shadow">
+                {item.emoji}
+              </span>
               
               {/* Badge */}
               {item.badge && (
-                <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[7px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-red-600 shadow-lg">
+                <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[7px] sm:text-[8px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-red-600 shadow-lg">
                   {item.badge}
                 </span>
               )}
             </div>
             
-            {/* Label */}
+            {/* Label - Responsive */}
             <p
-              className="text-center text-[8px] sm:text-[9px] font-semibold leading-tight line-clamp-2 w-full px-0.5"
+              className="text-center text-[7px] sm:text-[8px] md:text-[9px] font-semibold leading-tight line-clamp-2 w-full px-0.5"
               style={{ color: "var(--pm-text)" }}
             >
               {item.label}
