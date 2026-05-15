@@ -22,26 +22,33 @@ export default function QuickAccessGrid() {
   const navigate = useNavigate();
 
   return (
-    <div className="px-3 mt-4">
-      <div className="grid grid-cols-5 gap-2 sm:gap-3">
+    <div className="px-3 py-4 pb-6">
+      {/* Grid: 5 columns for mobile, responsive */}
+      <div className="grid grid-cols-5 gap-2.5 sm:gap-3">
         {items.map((item) => (
           <button
             key={item.id}
             onClick={() => navigate(item.route)}
-            className="flex flex-col items-center gap-1.5 group"
+            className="flex flex-col items-center gap-1 group active:opacity-70 transition-opacity"
+            type="button"
           >
+            {/* Icon Container */}
             <div
-              className={`relative w-full aspect-square rounded-xl sm:rounded-2xl bg-gradient-to-br ${item.bg} flex items-center justify-center shadow-lg group-active:scale-95 transition-transform`}
+              className={`relative w-full aspect-square rounded-xl sm:rounded-2xl bg-gradient-to-br ${item.bg} flex items-center justify-center shadow-md group-active:scale-95 transition-transform duration-150`}
             >
-              <span className="text-lg sm:text-xl">{item.emoji}</span>
+              <span className="text-2xl sm:text-3xl drop-shadow">{item.emoji}</span>
+              
+              {/* Badge */}
               {item.badge && (
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[7px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-red-600 shadow-lg">
                   {item.badge}
                 </span>
               )}
             </div>
+            
+            {/* Label */}
             <p
-              className="text-center text-[9px] sm:text-[10px] font-semibold leading-tight line-clamp-1 w-full"
+              className="text-center text-[8px] sm:text-[9px] font-semibold leading-tight line-clamp-2 w-full px-0.5"
               style={{ color: "var(--pm-text)" }}
             >
               {item.label}
