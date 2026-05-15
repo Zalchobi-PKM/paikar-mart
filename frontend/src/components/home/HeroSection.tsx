@@ -70,49 +70,56 @@ export default function HeroSection() {
   const banner = { ...BANNERS[slide], grad: BANNER_GRADIENTS[slide] };
 
   return (
-    <div className="px-3 pt-3 pb-2 flex flex-row gap-3">
-      {/* Welcome + Wallet Card */}
+    <div className="px-3 sm:px-4 pt-2 pb-3 md:pb-4 flex flex-col sm:flex-row gap-3 md:gap-4">
+      {/* Welcome + Wallet Card - Responsive */}
       <div
-        className="flex-1 rounded-2xl p-3.5 flex flex-col justify-between border"
+        className="flex-1 rounded-2xl p-3 sm:p-3.5 md:p-4 flex flex-col justify-between border"
         style={{
           background: "var(--pm-surface)",
           borderColor: "var(--pm-border)",
           backdropFilter: "blur(16px)",
-          minHeight: "130px",
+          minHeight: "120px",
         }}
       >
         <div>
-          <p className="text-[11px]" style={{ color: "var(--pm-text-muted)" }}>
+          <p className="text-[10px] sm:text-[11px]" style={{ color: "var(--pm-text-muted)" }}>
             স্বাগতম 👋
           </p>
-          <p className="font-bold text-[15px] mt-0.5 leading-tight" style={{ color: "var(--pm-text)" }}>
+          <p 
+            className="font-bold text-sm sm:text-base md:text-lg mt-0.5 leading-tight" 
+            style={{ color: "var(--pm-text)" }}
+          >
             Paikar Mart
           </p>
-          <div className="flex items-center gap-1 mt-1">
+          <div className="flex items-center gap-1 mt-1.5">
             {cityLoading ? (
-              <Loader2 className="w-3 h-3 animate-spin" style={{ color: "var(--pm-accent)" }} />
+              <Loader2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 animate-spin" style={{ color: "var(--pm-accent)" }} />
             ) : (
-              <MapPin className="w-3 h-3" style={{ color: "var(--pm-accent)" }} />
+              <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5" style={{ color: "var(--pm-accent)" }} />
             )}
-            <span className="text-[10px] truncate" style={{ color: "var(--pm-text-muted)" }}>
+            <span className="text-[9px] sm:text-[10px] truncate" style={{ color: "var(--pm-text-muted)" }}>
               {cityLoading ? "Detecting..." : city || "Bangladesh"}
             </span>
           </div>
         </div>
 
         {/* Wallet Balance */}
-        <div className="mt-3 rounded-xl p-2.5 border" style={{ background: "var(--pm-accent-soft)", borderColor: "var(--pm-border)" }}>
-          <p className="text-[10px] mb-1" style={{ color: "var(--pm-text-muted)" }}>
+        <div 
+          className="mt-3 rounded-xl p-2.5 sm:p-3 border" 
+          style={{ background: "var(--pm-accent-soft)", borderColor: "var(--pm-border)" }}
+        >
+          <p className="text-[9px] sm:text-[10px] mb-1.5" style={{ color: "var(--pm-text-muted)" }}>
             ওয়ালেট ব্যালেন্স
           </p>
           <div className="flex items-center justify-between">
-            <span className="font-bold text-sm" style={{ color: "var(--pm-text)" }}>
+            <span className="font-bold text-xs sm:text-sm" style={{ color: "var(--pm-text)" }}>
               {showBalance ? "৳ 0" : "৳ ••••••"}
             </span>
             <button
               onClick={() => setShowBalance((v) => !v)}
               style={{ color: "var(--pm-text-muted)" }}
-              className="transition-opacity active:opacity-50"
+              className="transition-opacity active:opacity-50 hover:opacity-80"
+              title="Toggle balance visibility"
             >
               {showBalance ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
             </button>
@@ -120,26 +127,30 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Banner Slider */}
+      {/* Banner Slider - Responsive */}
       <div
-        className="flex-1 rounded-2xl p-3.5 flex flex-col justify-between border overflow-hidden relative"
+        className="flex-1 rounded-2xl p-3 sm:p-3.5 md:p-4 flex flex-col justify-between border overflow-hidden relative"
         style={{
           background: banner.grad,
-          minHeight: "130px",
+          minHeight: "120px",
           transition: "background 0.5s ease",
           borderColor: "rgba(255,255,255,0.1)",
         }}
       >
         <div>
-          <p className="font-bold text-sm leading-snug text-white">{banner.title}</p>
-          <p className="text-white/70 text-[11px] mt-1">{banner.subtitle}</p>
+          <p className="font-bold text-xs sm:text-sm md:text-base leading-snug text-white">
+            {banner.title}
+          </p>
+          <p className="text-white/70 text-[10px] sm:text-[11px] mt-1">
+            {banner.subtitle}
+          </p>
         </div>
 
         <div className="flex items-end justify-between mt-2">
-          <button className="bg-white/20 text-white text-[11px] font-semibold px-3 py-1.5 rounded-full border border-white/25 active:bg-white/30 transition-colors">
+          <button className="bg-white/20 text-white text-[10px] sm:text-[11px] font-semibold px-3 py-1.5 rounded-full border border-white/25 active:bg-white/30 hover:bg-white/25 transition-colors">
             {banner.btn}
           </button>
-          <span className="text-3xl">{banner.emoji}</span>
+          <span className="text-2xl sm:text-3xl">{banner.emoji}</span>
         </div>
 
         {/* Dot indicators */}
@@ -152,6 +163,7 @@ export default function HeroSection() {
                 i === slide ? "w-5 bg-white" : "w-1.5 bg-white/30"
               }`}
               type="button"
+              title={`Banner ${i + 1}`}
             />
           ))}
         </div>
